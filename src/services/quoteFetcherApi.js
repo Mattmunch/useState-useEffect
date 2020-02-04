@@ -5,3 +5,8 @@ export const getQuote = () => {
         return res[0];
       }));
 };
+
+export const getQuoteByCharacter = (query, count) => {
+  return fetch(`futuramaapi.herokuapp.com/api/characters/${query}/${count}`)
+    .then(res => res.json());
+};

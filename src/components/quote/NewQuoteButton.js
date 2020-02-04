@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const NewQuoteButton = ({ fetchQuote }) => (
-  <button onClick={() => fetchQuote()}></button>
+  <button onClick={() => fetchQuote()}>Random Quote</button>
 );
 
 NewQuoteButton.propTypes = {
