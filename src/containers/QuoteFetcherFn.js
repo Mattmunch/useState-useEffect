@@ -14,8 +14,7 @@ const QuoteFetcherFn = () => {
       .then(quote => setQuote(quote));
   };
   useEffect(() => {
-    getQuote()
-      .then(quote => setQuote(quote));
+    fetchQuote();
   }, []);
     
   return (
