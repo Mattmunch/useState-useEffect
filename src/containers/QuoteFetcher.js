@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { getQuote } from '../services/quoteFetcherApi';
+import Quote from '../components/quote/Quote';
+import NewQuoteButton from '../components/quote/NewQuoteButton';
 
 export default class QuoteFetcher extends Component {
     state = {
-      quote:''
+      quote: {
+        character: '',
+        image: '',
+        quote:''
+      }
     }
 
     componentDidMount() {
       this.fetchQuote();
-    }
-
-    componentDidUpdate() {
-      this.fetchEvents();
     }
 
     fetchQuote = () => {
@@ -19,7 +21,14 @@ export default class QuoteFetcher extends Component {
         .then(quote => this.setState({ quote }));
     }
 
-    handle
+    render() {
+      return (
+        <>
+          <Quote quote={this.state.quote} /> 
+          <NewQuoteButton fetchQuote={this.fetchQuote} />
+        </>
+      );
+    }
 
 
 
