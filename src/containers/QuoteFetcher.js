@@ -11,16 +11,13 @@ export default class QuoteFetcher extends Component {
         quote:''
       }
     }
-
     componentDidMount() {
       this.fetchQuote();
     }
-
     fetchQuote = () => {
       return getQuote()
         .then(quote => this.setState({ quote }));
     }
-
     render() {
       return (
         <>

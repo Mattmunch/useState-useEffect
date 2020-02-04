@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Quote = ({ quote: { character, quote, image } }) => {
+const Quote = ({ character, quote, image }) => {
   return <section>
     <h2>{character}</h2>
-    <image src={image}/>
+    <img src={image}/>
     <p>{quote}</p>
   </section>;
 };
