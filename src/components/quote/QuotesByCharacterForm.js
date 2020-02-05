@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { getQuoteByCharacter } from '../../services/quoteFetcherApi';
 
@@ -11,14 +11,12 @@ const QuotesByCharacterForm = ({ setQuoteArray }) => {
     
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('WHATEVER');
     fetchQuoteByCharacter();
   };
     
   const fetchQuoteByCharacter = () => {
     getQuoteByCharacter(characterQuery, quoteCount)
       .then(quotes => {
-        console.log(quotes);
         setQuoteArray(quotes);
       });
   };
