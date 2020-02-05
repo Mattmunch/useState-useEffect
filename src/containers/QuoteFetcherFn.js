@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { getQuote } from '../services/quoteFetcherApi';
-import Quote from '../components/quote/Quote';
+import Quotes from '../components/quote/Quotes';
 import NewQuoteButton from '../components/quote/NewQuoteButton';
+import QuotesByCharacterForm from '../components/quote/QuotesByCharacterForm';
 
 const QuoteFetcherFn = () => {
-  const [quote, setQuote] = useState({
-    character: '',
-    image: '',
-    quote: ''
-  });
+  const [quoteArray, setQuoteArray] = useState([]);
   const fetchQuote = () => {
     return getQuote()
-      .then(quote => setQuote(quote));
+      .then(quote => setQuoteArray(quote));
   };
   useEffect(() => {
     fetchQuote();
@@ -19,8 +16,9 @@ const QuoteFetcherFn = () => {
     
   return (
     <>
-      <Quote character={quote.character} quote={quote.quote} image={quote.image} />
       <NewQuoteButton fetchQuote={fetchQuote} />
+      <QuotesByCharacterForm setQuoteArray={setQuoteArray} />
+      <Quotes quotes={quoteArray} />
     </>
   );
 };
